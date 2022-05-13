@@ -1,0 +1,42 @@
+
+.navbar{
+    // border: 1px solid rgb(21, 28, 206);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo{
+        display: flex;
+        align-items: center;
+       
+        figure{
+            width: 10rem;
+           
+            img{
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        .logo-title{
+            font-size: 2.5rem;
+            color: #b28451;
+        }
+    }
+    .navlinks{
+     
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 2rem;
+        .navlink{
+            margin: 0 2rem;
+            font-size: 1.7rem;
+            transition: all .5s;
+            a{
+                transition: color .4s;
+                &:hover{
+                    color:#b28451;
+                }
+            }
+        }
+    }
+}

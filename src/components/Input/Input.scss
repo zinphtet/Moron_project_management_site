@@ -1,0 +1,26 @@
+
+.input-group{
+    // border: 1px solid red;
+    &>*{
+        display: block;
+    }
+    .label{
+        font-size: 1.5rem;
+        color: #b28451;
+    }
+    .input{
+        border: 2px solid #b28451;
+        border-radius: .3rem;
+        padding: .5rem 2rem;
+        outline: none;
+        width: 100%;
+        &:focus{
+            border: 2px solid #fd8905;
+            color: #b28451;
+        }
+         &:-webkit-input-placeholder{
+             color: #b28451;
+         }
+    
+    }
+}

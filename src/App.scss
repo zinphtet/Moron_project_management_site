@@ -1,0 +1,25 @@
+
+@import 'var.scss';
+@import 'typography.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.7;
+}
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color:#b28451;
+}
+// .App{
+//   padding: 10rem;
+// }

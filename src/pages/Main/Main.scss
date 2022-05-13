@@ -1,0 +1,13 @@
+.main{
+    min-height: 100vh;
+    padding: 2rem;
+
+    // border: 1px solid red;
+    // position: relative;
+   
+    &-div{
+        position: relative;
+        // border: 1px solid red;
+        height:80vh;
+    }
+}
