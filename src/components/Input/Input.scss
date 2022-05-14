@@ -14,12 +14,14 @@
         padding: .5rem 2rem;
         outline: none;
         width: 100%;
+        font-size: 1.5rem;
         &:focus{
             border: 2px solid #fd8905;
             color: #b28451;
         }
          &:-webkit-input-placeholder{
              color: #b28451;
+             font-size: 2rem;
          }
     
     }

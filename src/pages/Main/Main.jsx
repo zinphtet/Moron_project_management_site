@@ -2,20 +2,24 @@
 import React from 'react'
 import './Main.scss'
 import Navbar from '../../components/Navbar/Navbar';
-import Input from '../../components/Input/Input';
 import Login from '../../components/Login/Login';
 import Signup from '../../components/SignUp/Signup';
-import { Routes,Route } from 'react-router';
+import { Routes,Route,Navigate } from 'react-router';
+import { useContext } from 'react';
+import { AuthContext } from '../../ContextAPI/AuthContext/AuthContext';
 function Main() {
+  const {currentUser,authReady} = useContext(AuthContext)
+  console.log(currentUser)
+  console.log('AuthState' , authReady)
   return (
     <div className='main'>
       <Navbar/>
       {/* <Login/> */}
       <div className='main-div'>
          <Routes>
-            <Route path='/'  element={<Login/>}/>
-           <Route path='/login'  element={<Login/>}/>
-           <Route path='/signup'  element={<Signup/>}/>
+            <Route path='/'  element={!currentUser ? <Navigate replace to='/login'/> : <div>HELLO</div>}/>
+           <Route path='/login'  element={!currentUser ? <Login/> :<Navigate replace to='/'/> }/>
+           <Route path='/signup'  element={!currentUser ? <Signup/> :<Navigate replace to='/'/>}/>
          </Routes>
       </div>
      
