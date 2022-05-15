@@ -2,7 +2,7 @@
 @import 'var.scss';
 @import 'typography.scss';
 
-*{
+*,*::after,*::before{
   margin: 0;
   padding: 0;
   box-sizing: border-box;

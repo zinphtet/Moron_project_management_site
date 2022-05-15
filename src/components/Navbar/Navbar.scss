@@ -18,7 +18,7 @@
         }
         .logo-title{
             font-size: 2.5rem;
-            color: #b28451;
+            color: #8d69f1;
             font-weight: 600;
         }
     }
@@ -31,11 +31,12 @@
         .navlink{
             margin: 0 2rem;
             font-size: 1.7rem;
+            color: #8d69f1;
             transition: all .5s;
             a{
                 transition: color .4s;
                 &:hover{
-                    color:#b28451;
+                    color:#8d69f1;
                 }
             }
         }

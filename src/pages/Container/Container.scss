@@ -1,15 +1,19 @@
 
 .container{
     display: flex;
-    min-width: 100vh;
-    .dashboard,.all-users{
+    height: auto;
+//   border: 4px solid black;
+
+    .sidebar,.all-users{
         flex: 1;
-       min-height: 100%;
-        border: 1px solid rebeccapurple;
+    //    min-height: 100%;
+        // border: 1px solid rebeccapurple;
     }
     
+    
     .main{
-        flex: 2;
-        height: 100%;
+        flex: 4;
+        // height: 100%;
+        // height: max-content;
     }
 }

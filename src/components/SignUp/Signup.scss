@@ -1,25 +1,25 @@
 
 .signup-form{
-    border: 3px solid #b28451;
+    border: 3px solid #8d69f1;
     min-width: 30rem;
-    max-width: 40% !important;
+    max-width: 40% ;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 0.1rem 0rem .2rem #b28451;
-    background-color: #fce8c8;
+    box-shadow: 0.1rem 0rem .2rem #8d69f1;
+    background-color: #fee;
    &> *{
         margin-bottom: 1.5rem;
     }
     .signup-title{
         font-size: 2rem;
-        color: #b28451;
+        color: #8d69f1;
     }
     &>input::placeholder,&>input::-webkit-input-placeholder{
-       color: #b28451;
+       color: #8d69f1;
     }
     button{
        float: right;

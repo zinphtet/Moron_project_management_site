@@ -6,21 +6,21 @@
     }
     .label{
         font-size: 1.5rem;
-        color: #b28451;
+        color: #8d69f1;
     }
     .input{
-        border: 2px solid #b28451;
+        border: 2px solid #8d69f1;
         border-radius: .3rem;
         padding: .5rem 2rem;
         outline: none;
         width: 100%;
         font-size: 1.5rem;
         &:focus{
-            border: 2px solid #fd8905;
-            color: #b28451;
+            border: 2px solid #211b31;
+            color: #8d69f1;
         }
          &:-webkit-input-placeholder{
-             color: #b28451;
+             color: #8d69f1;
              font-size: 2rem;
          }
     

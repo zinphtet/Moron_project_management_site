@@ -1,0 +1,10 @@
+
+.project-wrapper{
+    margin: 2rem;
+    display: grid;
+    height: max-content;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    // border: 1px solid black;
+}

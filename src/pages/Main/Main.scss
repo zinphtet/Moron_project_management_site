@@ -1,13 +1,15 @@
 .main{
-    min-height: 100vh;
+    // min-height: max-content;
     padding: 2rem;
-
+    height: 100%;
     // border: 1px solid red;
-    // position: relative;
-   
+    z-index: 10;
+    //  position: relative;
+   height: auto;
     &-div{
-        position: relative;
+        // position: relative;
         // border: 1px solid red;
-        height:80vh;
+        min-height: 80vh;
+        max-height:auto;
     }
 }

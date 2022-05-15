@@ -6,6 +6,7 @@ import { auth } from '../../firebase/firebase';
 const initialState = {
 	currentUser: null,
 	authReady: false,
+	displayReady: false,
 };
 
 const authReducer = (state, action) => {
@@ -16,10 +17,25 @@ const authReducer = (state, action) => {
 				currentUser: action.payload,
 				authReady: true,
 			};
+		case 'AUTH_READY_FALSE':
+			return {
+				...state,
+				authReady: false,
+			};
+		case 'AUTH_READY':
+			return {
+				...state,
+				authReady: true,
+			};
 		case 'LOGOUT':
 			return {
 				...state,
 				currentUser: null,
+			};
+		case 'DISPLAY_READY':
+			return {
+				...state,
+				displayReady: true,
 			};
 		default:
 			return state;

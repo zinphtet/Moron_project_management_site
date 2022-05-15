@@ -3,16 +3,19 @@ import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../ContextAPI/AuthContext/AuthContext';
+import { useNavigate } from 'react-router';
 const useLogout = () => {
 	const [loading, setLoading] = useState(false);
 	const { dispatch } = useContext(AuthContext);
+	const navigate = useNavigate()
 	const logout = async () => {
 		try {
 			setLoading(true);
-			const data = await signOut(auth);
+			 await signOut(auth);
 			dispatch({ type: 'LOGOUT' });
 			setLoading(false);
 			toast.success('Logout Successful',{autoClose:2000});
+			navigate('/')
 		} catch (err) {
 			setLoading(false);
 			toast.error('Cannot Logout',{autoClose:2000});

@@ -1,5 +1,8 @@
 import React from 'react';
 import { storage } from '../firebase/firebase';
+import { auth } from '../firebase/firebase';
+import { updateProfile } from 'firebase/auth';
+
 import {
 	getStorage,
 	ref,
@@ -7,19 +10,29 @@ import {
 	getDownloadURL,
 } from 'firebase/storage';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
+import useUpdateDoc from './useUpdateDoc';
+import { useContext } from 'react';
+import { AuthContext } from '../ContextAPI/AuthContext/AuthContext';
+import useSignup from './useSignup';
+import { UserContext } from '../ContextAPI/UserContext';
 const useAddImg = () => {
-	const addImg = async (image, id) => {
+	const { updateDocument } = useUpdateDoc();
+	const { dispatchUser, userId } = useContext(UserContext);
+	console.log(userId, 'DOC REF');
+	const addImg = async (email, image, docId, displayName) => {
 		// const storage = getStorage();
-		const fileName = `${id}-${image.name}`;
-		const storageRef = ref(storage, `images/${id}/` + fileName);
-
+		console.log('RUNNIG ADD IMG');
+		const fileName = `${email}-${image.name}`;
+		const storageRef = ref(storage, `images/${email}/` + fileName);
+		console.log(storageRef);
 		const uploadTask = uploadBytesResumable(storageRef, image);
 
 		// Register three observers:
 		// 1. 'state_changed' observer, called any time the state changes
 		// 2. Error observer, called on failure
 		// 3. Completion observer, called on successful completion
-		uploadTask.on(
+		return uploadTask.on(
 			'state_changed',
 			(snapshot) => {
 				// Observe state change events such as progress, pause, and resume
@@ -43,8 +56,31 @@ const useAddImg = () => {
 			() => {
 				// Handle successful uploads on complete
 				// For instance, get the download URL: https://firebasestorage.googleapis.com/...
-				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+				getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
 					console.log('File available at', downloadURL);
+					// setImg(downloadURL);
+					// await signup(email, password);
+					toast.success('Image uploaded successful', { autoClose: 2000 });
+					console.log(displayName, downloadURL, 'GETDOWNLOAD URL');
+
+					await updateProfile(auth.currentUser, {
+						photoURL: downloadURL,
+						displayName: displayName,
+					});
+
+					// console.log(auth.currentUser, 'UPDATED PROFILE');
+					console.log(docId, auth.currentUser.uid, 'to update ');
+					await updateDocument('users', docId, {
+						imgUrl: downloadURL,
+						uid: auth.currentUser.uid,
+					});
+					dispatchUser({
+						type: 'USER',
+						payload: {
+							photoURL: downloadURL,
+							displayName: displayName,
+						},
+					});
 				});
 			}
 		);

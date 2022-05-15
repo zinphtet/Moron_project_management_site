@@ -2,15 +2,21 @@ import React from 'react'
 import './Signup.scss';
 import Input from '../Input/Input'
 import Button from '../Button/Button';
-import { useState } from 'react';
+import { useState ,useContext} from 'react';
 import { toast } from 'react-toastify';
 import useSignup from '../../CustomHooks/useSignup';
 import useAddDoc from '../../CustomHooks/useAddDoc';
 import useAddImg from '../../CustomHooks/useAddImg';
+import {  updateProfile } from "firebase/auth";
+import { auth } from '../../firebase/firebase';
+import { AuthContext } from '../../ContextAPI/AuthContext/AuthContext';
+
 function Signup() {
  const {loading , signup} = useSignup()
  const {addDocument}=  useAddDoc()
  const {addImg} = useAddImg()
+ const {dispatch} = useContext(AuthContext)
+// console.log('signup img' ,img)
   const [formData,setFormData] = useState({
         email:'',
         password:'',
@@ -37,21 +43,31 @@ const handleFile = (e)=>{
     setFile(e.target.files)
   }
 }
-const handleSubmit = (e)=>{
+
+const handleSubmit = async (e)=>{
   e.preventDefault();
+  // dispatch({type:'AUTH_READY'})
   if(!file || file[0].size >100000){
     toast.error('Something went wrong !' , {autoClose:2000})
     return;
   }
   if(file){
-    console.log(email,password,displayName,file[0])
-    addDocument('users',{
+    // console.log(email,password,displayName,file[0])
+   const id =await addDocument('users',{
       email,
       password,
-      displayName
+      displayName,
     })
-    addImg(file[0],email)
-    signup(email,password)
+    console.log(id , 'docuemtn Ref ID')
+    // console.log('doc id',id)
+    console.log("STARTING SIGNUP USER")
+    const user = await signup(email,password)
+    // console.log(user , 'SIGN UP USER')
+    await addImg(email,file[0],id,displayName)
+    // await updateProfile(auth.currentUser, {
+    //   displayName: displayName,
+    // })
+   console.log("FINISHED SIGNUP USER")
   }
 }
 
