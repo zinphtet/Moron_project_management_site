@@ -18,9 +18,9 @@ function Login() {
     setPassword(e.target.value)
   }
 
-  const handleSubmit=(e)=>{
+  const handleSubmit=async (e)=>{
     e.preventDefault()
-    loginUser(email,password);
+   await  loginUser(email,password);
   }
   return (
    <form className='form' onSubmit={handleSubmit}>

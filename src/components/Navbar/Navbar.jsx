@@ -11,7 +11,7 @@ import useLogout from '../../CustomHooks/useLogout';
 function Navbar() {
 const {currentUser } = useContext(AuthContext)
 const {loading , logout} = useLogout()
-console.log(currentUser)
+// console.log(currentUser)
   return (
     <div className='navbar'>
         <div className="logo">

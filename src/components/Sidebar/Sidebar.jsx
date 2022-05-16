@@ -18,7 +18,8 @@ if(user){
     photoURL = user.photoURL
 }
 if(currentUser){
-  displayName = currentUser.displayName
+  
+    displayName = currentUser.displayName?.split('++')[0]
     photoURL = currentUser.photoURL
 }
   

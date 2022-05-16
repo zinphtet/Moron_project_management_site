@@ -4,13 +4,10 @@ import { useState, useContext } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../ContextAPI/AuthContext/AuthContext';
 import { useNavigate } from 'react-router';
+import useUpdateDoc from './useUpdateDoc';
 const useLogin = () => {
 	const [loading, setLoading] = useState(false);
-	// const [success, setSuccess] = useState(false);
-	// const [state, setState] = useState({
-	// 	loading: false,
-	// 	success: false,
-	// });
+	const { updateDocument } = useUpdateDoc();
 	const navigate = useNavigate();
 	const { dispatch } = useContext(AuthContext);
 	const loginUser = async (email, password) => {
@@ -21,6 +18,13 @@ const useLogin = () => {
 				auth,
 				email,
 				password
+			);
+			await updateDocument(
+				'users',
+				auth.currentUser.displayName?.split('++')[1],
+				{
+					online: true,
+				}
 			);
 			dispatch({ type: 'SET_USER', payload: currentUser.user });
 			setLoading(false);

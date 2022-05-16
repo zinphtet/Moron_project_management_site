@@ -1,7 +1,7 @@
 import React from 'react';
 import { storage } from '../firebase/firebase';
-import { auth } from '../firebase/firebase';
-import { updateProfile } from 'firebase/auth';
+// import { auth } from '../firebase/firebase';
+import { getAuth, updateProfile } from 'firebase/auth';
 
 import {
 	getStorage,
@@ -17,15 +17,16 @@ import { AuthContext } from '../ContextAPI/AuthContext/AuthContext';
 import useSignup from './useSignup';
 import { UserContext } from '../ContextAPI/UserContext';
 const useAddImg = () => {
+	const auth = getAuth();
 	const { updateDocument } = useUpdateDoc();
 	const { dispatchUser, userId } = useContext(UserContext);
-	console.log(userId, 'DOC REF');
+	// console.log(userId, 'DOC REF');
 	const addImg = async (email, image, docId, displayName) => {
 		// const storage = getStorage();
-		console.log('RUNNIG ADD IMG');
+		// console.log('RUNNIG ADD IMG');
 		const fileName = `${email}-${image.name}`;
 		const storageRef = ref(storage, `images/${email}/` + fileName);
-		console.log(storageRef);
+		// console.log(storageRef);
 		const uploadTask = uploadBytesResumable(storageRef, image);
 
 		// Register three observers:
@@ -63,16 +64,30 @@ const useAddImg = () => {
 					toast.success('Image uploaded successful', { autoClose: 2000 });
 					console.log(displayName, downloadURL, 'GETDOWNLOAD URL');
 
-					await updateProfile(auth.currentUser, {
-						photoURL: downloadURL,
-						displayName: displayName,
-					});
+					// await updateProfile(auth.currentUser, {
+					// 	photoURL: downloadURL,
+					// 	displayName: `${displayName}?${docId}`,
+					// });
+					// await updateProfile(auth.currentUser, {
+					// 	docId,
+					// });
 
 					// console.log(auth.currentUser, 'UPDATED PROFILE');
-					console.log(docId, auth.currentUser.uid, 'to update ');
-					await updateDocument('users', docId, {
-						imgUrl: downloadURL,
-						uid: auth.currentUser.uid,
+					// console.log(docId, auth.currentUser.uid, 'to update ');
+					await updateDocument(
+						'users',
+						docId,
+						{
+							imgUrl: downloadURL,
+							uid: auth.currentUser.uid,
+							online: true,
+						},
+						true
+					);
+
+					await updateProfile(auth.currentUser, {
+						photoURL: downloadURL,
+						displayName: `${displayName}++${docId}`,
 					});
 					dispatchUser({
 						type: 'USER',
