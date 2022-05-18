@@ -5,15 +5,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthContextProvider } from './ContextAPI/AuthContext/AuthContext';
 import { UserContextProvider } from './ContextAPI/UserContext';
+import { CollectionContextProvider } from './ContextAPI/CollectionContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<UserContextProvider>
-		<AuthContextProvider>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</AuthContextProvider>
-	</UserContextProvider>
+	<CollectionContextProvider>
+		<UserContextProvider>
+			<AuthContextProvider>
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
+			</AuthContextProvider>
+		</UserContextProvider>
+	</CollectionContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

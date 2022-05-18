@@ -58,10 +58,10 @@ const handleSubmit = async (e)=>{
       password,
       displayName,
     })
-    console.log(id , 'docuemtn Ref ID')
+    // console.log(id , 'docuemtn Ref ID')
     // console.log('doc id',id)
     console.log("STARTING SIGNUP USER")
-    const user = await signup(email,password)
+     await signup(email,password)
     // console.log(user , 'SIGN UP USER')
     await addImg(email,file[0],id,displayName)
     // await updateProfile(auth.currentUser, {

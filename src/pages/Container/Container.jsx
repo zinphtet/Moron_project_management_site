@@ -1,21 +1,30 @@
 import Main from "../Main/Main"
 import './Container.scss'
-import { useContext } from "react"
+import { useContext ,useEffect} from "react"
 import { AuthContext } from "../../ContextAPI/AuthContext/AuthContext"
 import Sidebar from "../../components/Sidebar/Sidebar"
+import Alluser from "../../components/UsersStatus/Alluser"
+import useGetCollection from "../../CustomHooks/useGetCollection"
 const Container = ()=>{
     const {currentUser,authReady} = useContext(AuthContext)
-    const displayName = currentUser?.displayName
-    const photoURL = currentUser?.photoURL
-    
+     const {getCollection} = useGetCollection()
+    useEffect(()=>{
+        const unsub =  getCollection('posts','SET_POSTS')
+        const unsubscribe =  getCollection('users','SET_USERS')
+        // console.log( dataArr)
+        // setUsers(dataArr)
+        return ()=>{
+          unsub();
+          unsubscribe();
+        }
+       },[])
+    console.log("CONTAINER")
     return <div className='container'>
         {(authReady ) && <>
             {(currentUser )&& <Sidebar />}
             
              <Main/>
-        {(currentUser ) &&  <div className="all-users">
-                All Users
-             </div>}
+        {(currentUser ) &&  <Alluser/>}
         </>}
         
             

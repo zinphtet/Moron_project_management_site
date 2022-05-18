@@ -9,12 +9,16 @@
         color: #8d69f1;
     }
     .input{
+       
         border: 2px solid #8d69f1;
         border-radius: .3rem;
-        padding: .5rem 2rem;
+        padding: .7rem 2rem;
         outline: none;
         width: 100%;
         font-size: 1.5rem;
+        &[type='date']{
+            padding: .2rem 2rem;
+        }
         &:focus{
             border: 2px solid #211b31;
             color: #8d69f1;

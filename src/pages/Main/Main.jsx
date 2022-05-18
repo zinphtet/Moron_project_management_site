@@ -9,9 +9,10 @@ import { useContext } from 'react';
 import { AuthContext } from '../../ContextAPI/AuthContext/AuthContext';
 import Dashboard from '../../components/Dashboard/Dashboard';
 import Create from '../../components/Create/Create';
+import ViewPost from '../ViewPost/ViewPost';
 function Main() {
-  const {currentUser,authReady} = useContext(AuthContext)
- 
+  const {currentUser} = useContext(AuthContext)
+ console.log("MAIN")
   return (
     <div className='main'>
       <Navbar/>
@@ -32,6 +33,7 @@ function Main() {
                <Route path='/'  element={ <Navigate replace to='/dashboard'/> }/>
                <Route path='/dashboard'  element={ <Dashboard/> }/>
                <Route path='/create'  element={ <Create/> }/>
+               <Route path='/projects/:postId'  element={ <ViewPost/> }/>
            </Routes>
            </>
          }

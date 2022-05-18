@@ -4,9 +4,10 @@ import { toast } from 'react-toastify';
 import { auth } from '../firebase/firebase';
 import { updateProfile } from 'firebase/auth';
 const useUpdateDoc = () => {
-	const updateDocument = async (colName, id, updateObj, signup) => {
+	const updateDocument = async (colName, id, updateObj) => {
 		try {
 			// console.log('updating');
+			console.log(colName,id,updateObj)
 			const docRef = doc(db, colName, id);
 			await updateDoc(docRef, {
 				...updateObj,

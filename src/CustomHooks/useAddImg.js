@@ -74,16 +74,11 @@ const useAddImg = () => {
 
 					// console.log(auth.currentUser, 'UPDATED PROFILE');
 					// console.log(docId, auth.currentUser.uid, 'to update ');
-					await updateDocument(
-						'users',
-						docId,
-						{
-							imgUrl: downloadURL,
-							uid: auth.currentUser.uid,
-							online: true,
-						},
-						true
-					);
+					await updateDocument('users', docId, {
+						imgUrl: downloadURL,
+						uid: auth.currentUser.uid,
+						online: true,
+					});
 
 					await updateProfile(auth.currentUser, {
 						photoURL: downloadURL,

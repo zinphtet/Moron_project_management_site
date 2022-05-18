@@ -13,6 +13,8 @@ const {user} = useContext(UserContext)
 const {currentUser } = useContext(AuthContext)
 let displayName;
 let photoURL;
+console.log(user ,"USER CONTEXT")
+console.log(currentUser,"ATUH USER")
 if(user){
     displayName = user.displayName
     photoURL = user.photoURL
