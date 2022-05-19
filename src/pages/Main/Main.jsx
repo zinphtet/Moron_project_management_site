@@ -12,11 +12,11 @@ import Create from '../../components/Create/Create';
 import ViewPost from '../ViewPost/ViewPost';
 function Main() {
   const {currentUser} = useContext(AuthContext)
- console.log("MAIN")
+
   return (
     <div className='main'>
       <Navbar/>
-      {/* <Login/> */}
+   
       <div className='main-div'>
         {!currentUser && <>
           <Routes>

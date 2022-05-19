@@ -36,6 +36,9 @@
                     padding:.5rem 1.5rem;
                   border: 1px solid #d7d2d2;
                     border-radius: .5rem;
+                    &:focus{
+                        color: #8d69f1;
+                    }
                 }
             }
             .select-cat ,.assignto{

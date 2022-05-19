@@ -2,6 +2,7 @@ import { createContext, useReducer } from 'react';
 const initialState = {
 	users: null,
 	posts: null,
+	postFilterBy: 'all',
 };
 
 const usesReducer = (state, action) => {
@@ -15,6 +16,11 @@ const usesReducer = (state, action) => {
 			return {
 				...state,
 				posts: action.payload,
+			};
+		case 'SET_FILTER':
+			return {
+				...state,
+				postFilterBy: action.payload,
 			};
 		default:
 			return {

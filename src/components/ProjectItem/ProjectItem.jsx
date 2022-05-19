@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Image from './images.jpg'
+
 import './ProjectItem.scss'
 function ProjectItem({name,duedate,assign,id}) {
   
@@ -23,9 +23,7 @@ function ProjectItem({name,duedate,assign,id}) {
           {!assign && <div className='no-assign'>
             
             </div>}
-            {/* <img src={Image} alt="profile image" />
-            <img src={Image} alt="profile image" />
-            <img src={Image} alt="profile image" /> */}
+           
         </div>
     </div>
     </Link>

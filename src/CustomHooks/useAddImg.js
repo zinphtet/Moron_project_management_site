@@ -20,13 +20,12 @@ const useAddImg = () => {
 	const auth = getAuth();
 	const { updateDocument } = useUpdateDoc();
 	const { dispatchUser, userId } = useContext(UserContext);
-	// console.log(userId, 'DOC REF');
+
 	const addImg = async (email, image, docId, displayName) => {
-		// const storage = getStorage();
-		// console.log('RUNNIG ADD IMG');
+	
 		const fileName = `${email}-${image.name}`;
 		const storageRef = ref(storage, `images/${email}/` + fileName);
-		// console.log(storageRef);
+	
 		const uploadTask = uploadBytesResumable(storageRef, image);
 
 		// Register three observers:
@@ -58,22 +57,12 @@ const useAddImg = () => {
 				// Handle successful uploads on complete
 				// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 				getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-					console.log('File available at', downloadURL);
-					// setImg(downloadURL);
-					// await signup(email, password);
-					toast.success('Image uploaded successful', { autoClose: 2000 });
+					
 					console.log(displayName, downloadURL, 'GETDOWNLOAD URL');
 
-					// await updateProfile(auth.currentUser, {
-					// 	photoURL: downloadURL,
-					// 	displayName: `${displayName}?${docId}`,
-					// });
-					// await updateProfile(auth.currentUser, {
-					// 	docId,
-					// });
+					
 
-					// console.log(auth.currentUser, 'UPDATED PROFILE');
-					// console.log(docId, auth.currentUser.uid, 'to update ');
+					
 					await updateDocument('users', docId, {
 						imgUrl: downloadURL,
 						uid: auth.currentUser.uid,

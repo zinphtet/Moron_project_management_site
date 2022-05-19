@@ -1,7 +1,7 @@
 
 import React from 'react'
 import './Sidebar.scss'
-import avatar from './images.jpg'
+
 import { FaRegMap } from "react-icons/fa";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
@@ -13,8 +13,7 @@ const {user} = useContext(UserContext)
 const {currentUser } = useContext(AuthContext)
 let displayName;
 let photoURL;
-console.log(user ,"USER CONTEXT")
-console.log(currentUser,"ATUH USER")
+
 if(user){
     displayName = user.displayName
     photoURL = user.photoURL

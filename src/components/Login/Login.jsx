@@ -10,11 +10,11 @@ function Login() {
   const [password , setPassword] = useState('')
   const {loading , loginUser} = useLogin()
   const handleEmail = (e)=>{
-    // console.log(e.target.value)
+    
        setEmail(e.target.value)
   }
   const handlePassword = (e)=>{
-    // console.log(e.target.value)
+    
     setPassword(e.target.value)
   }
 

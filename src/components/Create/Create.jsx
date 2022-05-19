@@ -29,25 +29,19 @@ function Create() {
   }
   const handleCategory = (select)=>{
     console.log("CATEGORY")
-    // console.log(select)
+    
     setCategory(select)
-    // setCategory(e.target.value)
+    
   }
  const handleAssignTo = (select)=>{
   console.log("ASSIGN TO")
-//  console.log(select)
-  // console.dir(e.target)
-  //  setAssignTo(e.target.value)
+
   setAssignTo(select)
  }
 const handleSubmit = async (e)=>{
   
   e.preventDefault();
-  // console.log(projectName)
-  // console.log(projectDetail)
-  // console.log(dueDate)
-  // console.log(category)
-  // console.log(assignTo)
+  
    const obj = {
      name : projectName,
      detail : projectDetail,
@@ -64,8 +58,7 @@ const handleSubmit = async (e)=>{
   
 
  
-// console.log(users ,'USERS');
-// if(!users?.length >0) return <div>Loading ....</div>
+
 if(!users) return <div>Loading.....</div>
 const optionCategory = [
   { value: 'frontend', label: 'Web Frontend' },

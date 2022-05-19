@@ -34,18 +34,17 @@
         margin: 5rem 0rem;
     }
     .nav{
-        // border: 1px solid #fee;
+      
         position: relative;
         &>*{
             margin: 4rem 0;
-            // border: 1px solid red;
-        //    margin-left:35%;
+       
         }
         
         a{
             width: 100%;
             height: 100%;
-            // border: 1px solid rgb(237, 9, 25);
+          
             padding-left: 10rem;
             .nav-dashboard,.nav-create{
                 width: 95%;
@@ -56,16 +55,12 @@
                 color: #fff;
                 margin-left:20%;
                 transition: background-color .5s , color .5s;
-                // text-align: center;
-                // border: 1px solid red;
+               
                 svg{
                     margin-right: 1rem;
                     fill: currentColor;
                 }
-                // &:hover{
-                //     background-color: #fff;
-                //     color: #8d69f1;
-                // }
+               
             }
         }
         a.active>*{

@@ -4,7 +4,7 @@ import React from 'react'
 import './Alluser.scss'
 import { useContext } from 'react'
 import { CollectionContext } from '../../ContextAPI/CollectionContext'
-// import { uuid } from 'uuidv4';
+
 function Alluser() {
  const {users} = useContext(CollectionContext)
 
@@ -27,21 +27,7 @@ function Alluser() {
             })
         }
 
-            {/* <div className="user">
-                <div className="green-status"></div>
-                <p className='name'>zinphtet</p>
-                <img src={img} alt="profile img" />
-            </div>
-            <div className="user">
-                <div className="green-status"></div>
-                <p className='name'>zinphtet</p>
-                <img src={img} alt="profile img" />
-            </div>
-            <div className="user">
-                <div className="green-status"></div>
-                <p className='name'>zinphtet</p>
-                <img src={img} alt="profile img" />
-            </div> */}
+           
         </div>
     </div>
   )

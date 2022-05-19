@@ -2,18 +2,18 @@
 .container{
     display: flex;
     height: auto;
-//   border: 4px solid black;
 
-    .sidebar,.all-users{
-        flex: 1;
-    //    min-height: 100%;
-        // border: 1px solid rebeccapurple;
+
+    .sidebar{
+        flex: 2.7;
+    
+    }
+    .all-users{
+        flex: 1.5;
     }
     
-    
     .main{
-        flex: 4;
-        // height: 100%;
-        // height: max-content;
+        flex: 10;
+        
     }
 }

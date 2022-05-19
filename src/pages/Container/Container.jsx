@@ -11,14 +11,13 @@ const Container = ()=>{
     useEffect(()=>{
         const unsub =  getCollection('posts','SET_POSTS')
         const unsubscribe =  getCollection('users','SET_USERS')
-        // console.log( dataArr)
-        // setUsers(dataArr)
+       
         return ()=>{
           unsub();
           unsubscribe();
         }
        },[])
-    console.log("CONTAINER")
+    
     return <div className='container'>
         {(authReady ) && <>
             {(currentUser )&& <Sidebar />}

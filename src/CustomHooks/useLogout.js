@@ -14,9 +14,7 @@ const useLogout = () => {
 	const logout = async () => {
 		try {
 			setLoading(true);
-			// const docRef = doc(db,'users',auth.currentUser.documentId)
-			//  await updateProfile(docRef)
-			// console.log(auth.currentUser.phoneNumber);
+		
 			await updateDocument(
 				'users',
 				auth.currentUser.displayName?.split('++')[1],

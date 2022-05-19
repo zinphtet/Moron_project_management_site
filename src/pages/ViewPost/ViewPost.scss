@@ -1,17 +1,17 @@
 .viewpost-wrapper{
-    // border: 5px solid rebeccapurple;
+   
     padding: 4rem;
 }
 .viewpost{
     padding: 2rem;
-    // border: 1px solid red;
-    background-color: #eceff1;
+   
+    background-color: #eeeeee;
     border-radius: 1rem;
    
     .title{
         font-size: 2rem;
         font-weight: 400;
-        // margin-bottom: .5rem;
+       
     }
     .author{
           font-size: 1.3rem;
@@ -24,10 +24,7 @@
         padding: 2rem 0;
         font-size: 1.5rem;
        text-align: justify;
-    //    &::selection{
-    //       background-color: #8d69f1;
-    //    }
-    //    text-indent: 4rem;
+    
     }
     .assignto {
         margin-bottom: 2rem;
@@ -47,7 +44,7 @@
         }
     }
     .button{
-        // border: 1px solid red;
+      
         display: flex;
         justify-content: flex-end;
         button{
@@ -56,7 +53,7 @@
             border: 1px solid #8d69f1;
             color: #8d69f1;
             border-radius: .4rem;
-            // float: right;
+           
         }
     
     }
@@ -107,7 +104,7 @@
             // border: 1px solid salmon;
             margin: 2rem 0;
             padding: 2rem;
-            background-color: #eceff1;
+            background-color: #eeeeee;
             border-radius: 1rem;
             .comment-profile{
                 display: flex;
